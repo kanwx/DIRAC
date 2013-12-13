@@ -132,8 +132,8 @@ EOF
       jobID = "%s_%d@%s" % ( prefix, i, self.suffix)
       try:
 #  print jobID + "\n" + wrapperContent
-#  print self.BOINCClient
-        result = self.BOINCClient.service.submitJob( jobID, wrapperContent,self.ceParameters['Platform'] )
+#  print self.BOINCClientself.ceParameters
+        result = self.BOINCClient.service.submitJob( jobID, wrapperContent,self.ceParameters['Platform'][0],self.ceParameters['MarketPlaceID'] )
       except:
         self.log.error( 'Could not submit the pilot %s to the BOINC CE %s, communication failed!' % (jobID, self.wsdl ))
         break;        
